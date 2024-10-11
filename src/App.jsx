@@ -1,5 +1,5 @@
-import Login from "./components/Login"
-import Main from "./components/Main"
+import Login from "./components/visuals/Login"
+import Main from "./components/visuals/Main"
 import {BrowserRouter,Routes,Route,Link,Navigate } from "react-router-dom"
 import React, { useState } from 'react';
 

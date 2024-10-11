@@ -1,7 +1,40 @@
 import React from 'react'
+import TransactionHistory from './TransactionHistory';
+
+export default function MainMenu({ selectedMenu }) {
+  let Component;
+  switch (selectedMenu) {
+    case 'home':
+      Component = MainMenuGral;
+      break;
+    case 'administracion':
+      Component = MainMenuADP;
+      break;
+    case 'liquidacion':
+      Component = MainMenuLIQ;
+      break;      
+    case 'tiempos':
+      Component = MainMenuGTI;
+      break;
+    default:
+      Component = () => <div>No Disponible</div>;
+  }
+
+  return <Component />;
+}
+
+function MainMenuADP() {
+  return (<div>administracion</div>)
+}
+function MainMenuLIQ() {
+  return (<div>Liquidacion</div>)
+}
+function MainMenuGTI() {
+  return (<div>Gestion de Tiempos</div>)
+}
 
 
-export default function MainMenu() {
+function MainMenuGral() {
   return (
         <div className="content-wrapper">
             <div className="row">
@@ -87,32 +120,8 @@ export default function MainMenu() {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-4 grid-margin stretch-card">
-                <div className="card">
-                  <div className="card-body">
-                    <h4 className="card-title">Transaction History</h4>
-                    <canvas id="transaction-history" className="transaction-chart"></canvas>
-                    <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                      <div className="text-md-center text-xl-left">
-                        <h6 className="mb-1">Transfer to Paypal</h6>
-                        <p className="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                      </div>
-                      <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                        <h6 className="font-weight-bold mb-0">$236</h6>
-                      </div>
-                    </div>
-                    <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                      <div className="text-md-center text-xl-left">
-                        <h6 className="mb-1">Tranfer to Stripe</h6>
-                        <p className="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                      </div>
-                      <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                        <h6 className="font-weight-bold mb-0">$593</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <TransactionHistory/>
+
               <div className="col-md-8 grid-margin stretch-card">
                 <div className="card">
                   <div className="card-body">
